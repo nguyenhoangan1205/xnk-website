@@ -1,0 +1,83 @@
+{
+  "lang_name": "中文",
+  "site": { "title": "ATA Green 进出口", "tagline": "连接越南产品与世界" },
+  "nav": { "home": "首页", "products": "产品", "about": "关于我们", "contact": "联系我们", "admin": "管理后台" },
+  "home": {
+    "hero_title": "优质进出口产品",
+    "hero_subtitle": "农产品、家居用品、木材和工业设备——可靠货源，价格具有竞争力，全球配送。",
+    "browse_categories": "产品分类",
+    "view_all": "查看全部",
+    "why_us": "为什么选择我们",
+    "why_1_title": "品质保证",
+    "why_1_desc": "产品在出口前经过严格的质量检测。",
+    "why_2_title": "全球配送",
+    "why_2_desc": "拥有丰富的国际市场进出口经验。",
+    "why_3_title": "价格具有竞争力",
+    "why_3_desc": "与生产商直接合作，优化成本。",
+    "contact_cta": "联系我们获取报价"
+  },
+  "categories": {
+    "nong-san": "农产品",
+    "do-gia-dung": "家居用品",
+    "go": "木材",
+    "thiet-bi-cong-nghiep": "工业设备"
+  },
+  "category_desc": {
+    "nong-san": "大米、咖啡、腰果、黑胡椒、干果等主要出口农产品。",
+    "do-gia-dung": "厨房用品、小型家具和手工家居工艺品。",
+    "go": "原木、胶合板、室内外木制家具。",
+    "thiet-bi-cong-nghiep": "工业生产用的机械、零配件和设备。"
+  },
+  "product": {
+    "price": "价格",
+    "contact_for_price": "联系询价",
+    "unit": "单位",
+    "origin": "产地",
+    "moq": "最小订购量",
+    "category": "分类",
+    "back_to_category": "返回分类",
+    "specifications": "产品信息",
+    "description": "描述",
+    "contact_supplier": "联系供应商",
+    "related_products": "相关产品",
+    "no_products": "该分类暂无产品。"
+  },
+  "units": { "kg": "公斤", "ton": "吨", "container": "集装箱", "piece": "件", "m3": "立方米", "box": "箱" },
+  "footer": {
+    "text": "专注于农产品、家居用品、木材和工业设备的进出口业务。",
+    "rights": "版权所有。",
+    "contact_info": "联系信息",
+    "quick_links": "快速链接"
+  },
+  "admin": {
+    "login_title": "管理员登录",
+    "username": "用户名",
+    "password": "密码",
+    "login_button": "登录",
+    "invalid_credentials": "用户名或密码错误。",
+    "dashboard": "产品管理后台",
+    "add_product": "添加产品",
+    "edit_product": "编辑产品",
+    "delete": "删除",
+    "edit": "编辑",
+    "save": "保存",
+    "cancel": "取消",
+    "product_name": "产品名称",
+    "short_desc": "简短描述",
+    "full_desc": "详细描述",
+    "image": "图片",
+    "current_image": "当前图片",
+    "actions": "操作",
+    "no_products_admin": "暂无产品，请添加第一个产品。",
+    "logged_in_as": "登录身份",
+    "logout": "退出登录",
+    "confirm_delete": "确定要删除此产品吗？",
+    "created": "产品添加成功。",
+    "updated": "产品更新成功。",
+    "deleted": "产品已删除。",
+    "language_tab_note": "请在下方填写各语言内容。",
+    "price_min": "最低价格",
+    "price_max": "最高价格",
+    "currency": "货币单位"
+  }
+}

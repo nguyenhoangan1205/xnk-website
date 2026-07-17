@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= product ? t('admin.edit_product') : t('admin.add_product') %> | <%= t('site.title') %></title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="admin-shell">
+  <div class="admin-topbar">
+    <span class="brand"><%= t('site.title') %> — <%= product ? t('admin.edit_product') : t('admin.add_product') %></span>
+    <a href="/admin?lang=<%= lang %>" style="font-size:0.85rem;color:#cfe4d3;">&larr; <%= t('admin.dashboard') %></a>
+  </div>
+
+  <div class="admin-main">
+    <% if (error) { %><div class="error-msg"><%= error %></div><% } %>
+
+    <form method="POST" enctype="multipart/form-data"
+          action="<%= product ? '/admin/products/' + product.id + '/edit?lang=' + lang : '/admin/products/new?lang=' + lang %>">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label><%= t('product.category') %></label>
+          <select name="categorySlug" required>
+            <% categories.forEach(function(cat) { %>
+              <option value="<%= cat %>" <%= product && product.categorySlug === cat ? 'selected' : '' %>><%= t('categories.' + cat) %></option>
+            <% }) %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label><%= t('admin.price_min') %></label>
+          <input type="number" step="0.01" name="priceMin" value="<%= product ? product.priceMin : '' %>" required />
+        </div>
+        <div class="form-group">
+          <label><%= t('admin.price_max') %></label>
+          <input type="number" step="0.01" name="priceMax" value="<%= product ? product.priceMax : '' %>" required />
+        </div>
+        <div class="form-group">
+          <label><%= t('admin.currency') %></label>
+          <select name="currency">
+            <% ['USD','VND','EUR','CNY','JPY'].forEach(function(c) { %>
+              <option value="<%= c %>" <%= product && product.currency === c ? 'selected' : '' %>><%= c %></option>
+            <% }) %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label><%= t('product.unit') %></label>
+          <select name="unit">
+            <% ['kg','ton','container','piece','m3','box'].forEach(function(u) { %>
+              <option value="<%= u %>" <%= product && product.unit === u ? 'selected' : '' %>><%= t('units.' + u) %></option>
+            <% }) %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label><%= t('product.moq') %></label>
+          <input type="text" name="moq" value="<%= product ? product.moq : '' %>" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label><%= t('admin.image') %></label>
+        <% if (product && product.image) { %>
+          <div class="current-image-preview">
+            <img src="<%= product.image %>" alt="" />
+            <span class="hint"><%= t('admin.current_image') %></span>
+          </div>
+        <% } %>
+        <input type="file" name="image" accept="image/*" />
+      </div>
+
+      <p class="hint"><%= t('admin.language_tab_note') %></p>
+      <div class="lang-tabs">
+        <% langs.forEach(function(l, idx) { %>
+          <button type="button" class="lang-tab-btn <%= idx === 0 ? 'active' : '' %>" data-tab="<%= l %>"><%= l.toUpperCase() %></button>
+        <% }) %>
+      </div>
+
+      <% langs.forEach(function(l, idx) { %>
+        <div class="lang-panel <%= idx === 0 ? 'active' : '' %>" data-panel="<%= l %>">
+          <div class="form-group">
+            <label><%= t('admin.product_name') %> (<%= l.toUpperCase() %>)</label>
+            <input type="text" name="name_<%= l %>" value="<%= product ? product.translations[l].name : '' %>" <%= idx === 0 ? 'required' : '' %> />
+          </div>
+          <div class="form-group">
+            <label><%= t('admin.short_desc') %> (<%= l.toUpperCase() %>)</label>
+            <input type="text" name="shortDesc_<%= l %>" value="<%= product ? product.translations[l].shortDesc : '' %>" />
+          </div>
+          <div class="form-group">
+            <label><%= t('admin.full_desc') %> (<%= l.toUpperCase() %>)</label>
+            <textarea name="description_<%= l %>"><%= product ? product.translations[l].description : '' %></textarea>
+          </div>
+        </div>
+      <% }) %>
+
+      <div class="form-actions">
+        <button class="btn" type="submit"><%= t('admin.save') %></button>
+        <a class="btn btn-outline" href="/admin?lang=<%= lang %>"><%= t('admin.cancel') %></a>
+      </div>
+    </form>
+  </div>
+
+  <script src="/js/admin-form.js"></script>
+</body>
+</html>

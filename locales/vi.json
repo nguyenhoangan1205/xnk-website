@@ -1,0 +1,83 @@
+{
+  "lang_name": "Tiếng Việt",
+  "site": { "title": "ATA Green Export-Import", "tagline": "Kết nối sản phẩm Việt Nam với thế giới" },
+  "nav": { "home": "Trang chủ", "products": "Sản phẩm", "about": "Giới thiệu", "contact": "Liên hệ", "admin": "Quản trị" },
+  "home": {
+    "hero_title": "Xuất nhập khẩu sản phẩm chất lượng cao",
+    "hero_subtitle": "Nông sản, đồ gia dụng, gỗ và thiết bị công nghiệp — nguồn hàng uy tín, giá cạnh tranh, giao hàng toàn cầu.",
+    "browse_categories": "Danh mục sản phẩm",
+    "view_all": "Xem tất cả",
+    "why_us": "Vì sao chọn chúng tôi",
+    "why_1_title": "Chất lượng kiểm định",
+    "why_1_desc": "Sản phẩm được kiểm tra chất lượng nghiêm ngặt trước khi xuất khẩu.",
+    "why_2_title": "Giao hàng toàn cầu",
+    "why_2_desc": "Kinh nghiệm xuất nhập khẩu đến nhiều thị trường quốc tế.",
+    "why_3_title": "Giá cạnh tranh",
+    "why_3_desc": "Làm việc trực tiếp với nhà sản xuất để tối ưu chi phí.",
+    "contact_cta": "Liên hệ báo giá ngay"
+  },
+  "categories": {
+    "nong-san": "Nông sản",
+    "do-gia-dung": "Đồ gia dụng",
+    "go": "Gỗ",
+    "thiet-bi-cong-nghiep": "Thiết bị công nghiệp"
+  },
+  "category_desc": {
+    "nong-san": "Gạo, cà phê, hạt điều, hồ tiêu, trái cây sấy và các nông sản xuất khẩu chủ lực.",
+    "do-gia-dung": "Đồ dùng nhà bếp, nội thất nhỏ, hàng thủ công mỹ nghệ gia dụng.",
+    "go": "Gỗ nguyên liệu, ván ép, đồ gỗ nội thất và ngoại thất.",
+    "thiet-bi-cong-nghiep": "Máy móc, phụ tùng và thiết bị phục vụ sản xuất công nghiệp."
+  },
+  "product": {
+    "price": "Giá",
+    "contact_for_price": "Liên hệ báo giá",
+    "unit": "Đơn vị",
+    "origin": "Xuất xứ",
+    "moq": "Số lượng đặt tối thiểu",
+    "category": "Danh mục",
+    "back_to_category": "Quay lại danh mục",
+    "specifications": "Thông tin sản phẩm",
+    "description": "Mô tả",
+    "contact_supplier": "Liên hệ đặt hàng",
+    "related_products": "Sản phẩm liên quan",
+    "no_products": "Chưa có sản phẩm trong danh mục này."
+  },
+  "units": { "kg": "kg", "ton": "tấn", "container": "container", "piece": "cái", "m3": "m³", "box": "thùng" },
+  "footer": {
+    "text": "Chuyên xuất nhập khẩu nông sản, đồ gia dụng, gỗ và thiết bị công nghiệp.",
+    "rights": "Bản quyền thuộc về công ty.",
+    "contact_info": "Thông tin liên hệ",
+    "quick_links": "Liên kết nhanh"
+  },
+  "admin": {
+    "login_title": "Đăng nhập quản trị",
+    "username": "Tên đăng nhập",
+    "password": "Mật khẩu",
+    "login_button": "Đăng nhập",
+    "invalid_credentials": "Sai tên đăng nhập hoặc mật khẩu.",
+    "dashboard": "Bảng quản trị sản phẩm",
+    "add_product": "Thêm sản phẩm",
+    "edit_product": "Sửa sản phẩm",
+    "delete": "Xóa",
+    "edit": "Sửa",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "product_name": "Tên sản phẩm",
+    "short_desc": "Mô tả ngắn",
+    "full_desc": "Mô tả chi tiết",
+    "image": "Hình ảnh",
+    "current_image": "Ảnh hiện tại",
+    "actions": "Thao tác",
+    "no_products_admin": "Chưa có sản phẩm nào. Hãy thêm sản phẩm đầu tiên.",
+    "logged_in_as": "Đăng nhập với tư cách",
+    "logout": "Đăng xuất",
+    "confirm_delete": "Bạn chắc chắn muốn xóa sản phẩm này?",
+    "created": "Đã thêm sản phẩm thành công.",
+    "updated": "Đã cập nhật sản phẩm thành công.",
+    "deleted": "Đã xóa sản phẩm.",
+    "language_tab_note": "Nhập nội dung cho từng ngôn ngữ bên dưới.",
+    "price_min": "Giá thấp nhất",
+    "price_max": "Giá cao nhất",
+    "currency": "Đơn vị tiền tệ"
+  }
+}

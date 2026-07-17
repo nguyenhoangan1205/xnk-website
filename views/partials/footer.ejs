@@ -1,0 +1,29 @@
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4><%= t('site.title') %></h4>
+        <p><%= t('footer.text') %></p>
+      </div>
+      <div>
+        <h4><%= t('footer.quick_links') %></h4>
+        <p>
+          <% categories.forEach(function(cat) { %>
+            <a href="/products/<%= cat %>?lang=<%= lang %>" style="display:block;margin-bottom:6px;"><%= t('categories.' + cat) %></a>
+          <% }) %>
+        </p>
+      </div>
+      <div>
+        <h4><%= t('footer.contact_info') %></h4>
+        <p>
+          Email: sales@atagreen.com<br />
+          Tel / WhatsApp: +84 000 000 000<br />
+          Vietnam
+        </p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      &copy; <%= new Date().getFullYear() %> <%= t('site.title') %>. <%= t('footer.rights') %>
+    </div>
+  </footer>
+</body>
+</html>

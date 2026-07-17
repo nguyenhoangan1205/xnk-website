@@ -1,0 +1,67 @@
+<%- include('partials/header') %>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1><%= t('home.hero_title') %></h1>
+    <p><%= t('home.hero_subtitle') %></p>
+    <a class="btn" href="#categories"><%= t('home.browse_categories') %></a>
+  </div>
+</section>
+
+<div class="container">
+  <section class="block" id="categories">
+    <h2 class="section-title"><%= t('home.browse_categories') %></h2>
+    <div class="category-grid">
+      <% const icons = { 'nong-san': '🌾', 'do-gia-dung': '🏺', 'go': '🪵', 'thiet-bi-cong-nghiep': '⚙️' }; %>
+      <% categories.forEach(function(cat) { %>
+        <a class="category-card" href="/products/<%= cat %>?lang=<%= lang %>">
+          <div class="category-icon"><%= icons[cat] || '📦' %></div>
+          <h3><%= t('categories.' + cat) %></h3>
+          <p><%= t('category_desc.' + cat) %></p>
+          <span class="link"><%= t('home.view_all') %> &rarr;</span>
+        </a>
+      <% }) %>
+    </div>
+  </section>
+
+  <% if (featured.length) { %>
+  <section class="block">
+    <h2 class="section-title"><%= t('nav.products') %></h2>
+    <div class="product-grid">
+      <% featured.forEach(function(p) { %>
+        <a class="product-card" href="/product/<%= p.slug %>?lang=<%= lang %>">
+          <div class="product-thumb">
+            <% if (p.image) { %><img src="<%= p.image %>" alt="<%= p.translations[lang].name %>" /><% } else { %><span><%= t('categories.' + p.categorySlug) %></span><% } %>
+          </div>
+          <div class="product-info">
+            <span class="product-cat-tag"><%= t('categories.' + p.categorySlug) %></span>
+            <h3><%= p.translations[lang].name %></h3>
+            <p class="desc"><%= p.translations[lang].shortDesc %></p>
+            <span class="product-price"><%= p.priceMin %>&ndash;<%= p.priceMax %> <%= p.currency %> / <%= t('units.' + p.unit) %></span>
+          </div>
+        </a>
+      <% }) %>
+    </div>
+  </section>
+  <% } %>
+
+  <section class="block">
+    <h2 class="section-title"><%= t('home.why_us') %></h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <h3><%= t('home.why_1_title') %></h3>
+        <p><%= t('home.why_1_desc') %></p>
+      </div>
+      <div class="why-card">
+        <h3><%= t('home.why_2_title') %></h3>
+        <p><%= t('home.why_2_desc') %></p>
+      </div>
+      <div class="why-card">
+        <h3><%= t('home.why_3_title') %></h3>
+        <p><%= t('home.why_3_desc') %></p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<%- include('partials/footer') %>

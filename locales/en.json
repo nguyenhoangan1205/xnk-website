@@ -1,0 +1,83 @@
+{
+  "lang_name": "English",
+  "site": { "title": "ATA Green Export-Import", "tagline": "Connecting Vietnamese products with the world" },
+  "nav": { "home": "Home", "products": "Products", "about": "About", "contact": "Contact", "admin": "Admin" },
+  "home": {
+    "hero_title": "High-quality import & export products",
+    "hero_subtitle": "Agricultural products, household goods, wood and industrial equipment — trusted sourcing, competitive prices, worldwide delivery.",
+    "browse_categories": "Product Categories",
+    "view_all": "View all",
+    "why_us": "Why choose us",
+    "why_1_title": "Verified quality",
+    "why_1_desc": "Products go through strict quality checks before export.",
+    "why_2_title": "Global delivery",
+    "why_2_desc": "Experienced in export/import to many international markets.",
+    "why_3_title": "Competitive pricing",
+    "why_3_desc": "We work directly with manufacturers to optimize cost.",
+    "contact_cta": "Contact us for a quote"
+  },
+  "categories": {
+    "nong-san": "Agricultural Products",
+    "do-gia-dung": "Household Goods",
+    "go": "Wood",
+    "thiet-bi-cong-nghiep": "Industrial Equipment"
+  },
+  "category_desc": {
+    "nong-san": "Rice, coffee, cashew nuts, black pepper, dried fruits and other key export crops.",
+    "do-gia-dung": "Kitchenware, small furniture, and handmade household craft items.",
+    "go": "Raw timber, plywood, indoor and outdoor wooden furniture.",
+    "thiet-bi-cong-nghiep": "Machinery, spare parts and equipment for industrial production."
+  },
+  "product": {
+    "price": "Price",
+    "contact_for_price": "Contact for price",
+    "unit": "Unit",
+    "origin": "Origin",
+    "moq": "Minimum Order Quantity",
+    "category": "Category",
+    "back_to_category": "Back to category",
+    "specifications": "Product Information",
+    "description": "Description",
+    "contact_supplier": "Contact Supplier",
+    "related_products": "Related Products",
+    "no_products": "No products in this category yet."
+  },
+  "units": { "kg": "kg", "ton": "ton", "container": "container", "piece": "pcs", "m3": "m³", "box": "box" },
+  "footer": {
+    "text": "Specializing in export/import of agricultural products, household goods, wood and industrial equipment.",
+    "rights": "All rights reserved.",
+    "contact_info": "Contact Information",
+    "quick_links": "Quick Links"
+  },
+  "admin": {
+    "login_title": "Admin Login",
+    "username": "Username",
+    "password": "Password",
+    "login_button": "Log in",
+    "invalid_credentials": "Invalid username or password.",
+    "dashboard": "Product Management Dashboard",
+    "add_product": "Add Product",
+    "edit_product": "Edit Product",
+    "delete": "Delete",
+    "edit": "Edit",
+    "save": "Save",
+    "cancel": "Cancel",
+    "product_name": "Product Name",
+    "short_desc": "Short Description",
+    "full_desc": "Full Description",
+    "image": "Image",
+    "current_image": "Current image",
+    "actions": "Actions",
+    "no_products_admin": "No products yet. Add your first product.",
+    "logged_in_as": "Logged in as",
+    "logout": "Log out",
+    "confirm_delete": "Are you sure you want to delete this product?",
+    "created": "Product added successfully.",
+    "updated": "Product updated successfully.",
+    "deleted": "Product deleted.",
+    "language_tab_note": "Enter content for each language below.",
+    "price_min": "Min Price",
+    "price_max": "Max Price",
+    "currency": "Currency"
+  }
+}

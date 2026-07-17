@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= typeof pageTitle !== 'undefined' ? pageTitle + ' | ' + t('site.title') : t('site.title') %></title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/?lang=<%= lang %>">
+        <span class="brand-mark">AT</span>
+        <span><%= t('site.title') %></span>
+      </a>
+      <nav class="main-nav">
+        <a href="/?lang=<%= lang %>" class="<%= currentPath === '/' ? 'active' : '' %>"><%= t('nav.home') %></a>
+        <% categories.forEach(function(cat) { %>
+          <a href="/products/<%= cat %>?lang=<%= lang %>" class="<%= currentPath === '/products/' + cat ? 'active' : '' %>"><%= t('categories.' + cat) %></a>
+        <% }) %>
+      </nav>
+      <div class="lang-switch">
+        <% supportedLangs.forEach(function(l) { %>
+          <a href="<%= currentPath %>?lang=<%= l.code %>" class="<%= lang === l.code ? 'active' : '' %>"><%= l.code.toUpperCase() %></a>
+        <% }) %>
+      </div>
+    </div>
+  </header>

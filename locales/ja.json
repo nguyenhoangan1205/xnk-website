@@ -1,0 +1,83 @@
+{
+  "lang_name": "日本語",
+  "site": { "title": "ATA Green 輸出入", "tagline": "ベトナム製品と世界をつなぐ" },
+  "nav": { "home": "ホーム", "products": "製品", "about": "会社概要", "contact": "お問い合わせ", "admin": "管理画面" },
+  "home": {
+    "hero_title": "高品質な輸出入製品",
+    "hero_subtitle": "農産物、家庭用品、木材、産業機器 — 信頼できる調達、競争力のある価格、世界中への配送。",
+    "browse_categories": "製品カテゴリー",
+    "view_all": "すべて見る",
+    "why_us": "選ばれる理由",
+    "why_1_title": "品質保証",
+    "why_1_desc": "輸出前に厳格な品質検査を実施しています。",
+    "why_2_title": "世界中への配送",
+    "why_2_desc": "多くの国際市場への輸出入実績があります。",
+    "why_3_title": "競争力のある価格",
+    "why_3_desc": "メーカーと直接取引しコストを最適化しています。",
+    "contact_cta": "お見積りはこちら"
+  },
+  "categories": {
+    "nong-san": "農産物",
+    "do-gia-dung": "生活用品",
+    "go": "木材",
+    "thiet-bi-cong-nghiep": "産業機器"
+  },
+  "category_desc": {
+    "nong-san": "米、コーヒー、カシューナッツ、黒胡椒、ドライフルーツなど主要輸出農産物。",
+    "do-gia-dung": "キッチン用品、小型家具、手工芸の生活用品。",
+    "go": "原木、合板、室内外用木製家具。",
+    "thiet-bi-cong-nghiep": "産業生産用の機械、部品、設備。"
+  },
+  "product": {
+    "price": "価格",
+    "contact_for_price": "価格はお問い合わせください",
+    "unit": "単位",
+    "origin": "原産地",
+    "moq": "最小注文数量",
+    "category": "カテゴリー",
+    "back_to_category": "カテゴリーに戻る",
+    "specifications": "製品情報",
+    "description": "説明",
+    "contact_supplier": "サプライヤーに問い合わせる",
+    "related_products": "関連製品",
+    "no_products": "このカテゴリーにはまだ製品がありません。"
+  },
+  "units": { "kg": "kg", "ton": "トン", "container": "コンテナ", "piece": "個", "m3": "m³", "box": "箱" },
+  "footer": {
+    "text": "農産物、生活用品、木材、産業機器の輸出入を専門としています。",
+    "rights": "All rights reserved.",
+    "contact_info": "連絡先情報",
+    "quick_links": "クイックリンク"
+  },
+  "admin": {
+    "login_title": "管理者ログイン",
+    "username": "ユーザー名",
+    "password": "パスワード",
+    "login_button": "ログイン",
+    "invalid_credentials": "ユーザー名またはパスワードが正しくありません。",
+    "dashboard": "製品管理画面",
+    "add_product": "製品を追加",
+    "edit_product": "製品を編集",
+    "delete": "削除",
+    "edit": "編集",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "product_name": "製品名",
+    "short_desc": "簡単な説明",
+    "full_desc": "詳細説明",
+    "image": "画像",
+    "current_image": "現在の画像",
+    "actions": "操作",
+    "no_products_admin": "製品がまだありません。最初の製品を追加してください。",
+    "logged_in_as": "ログイン中",
+    "logout": "ログアウト",
+    "confirm_delete": "この製品を削除してもよろしいですか？",
+    "created": "製品が正常に追加されました。",
+    "updated": "製品が正常に更新されました。",
+    "deleted": "製品が削除されました。",
+    "language_tab_note": "以下に各言語の内容を入力してください。",
+    "price_min": "最低価格",
+    "price_max": "最高価格",
+    "currency": "通貨"
+  }
+}

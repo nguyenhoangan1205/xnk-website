@@ -1,0 +1,17 @@
+{
+  "name": "xnk-website",
+  "version": "1.0.0",
+  "description": "Website đăng sản phẩm xuất nhập khẩu đa ngôn ngữ (VI/EN/ZH/JA)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "express-session": "^1.18.0",
+    "multer": "^2.0.0"
+  }
+}

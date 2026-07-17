@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+
+<div class="container" style="padding-top:30px;">
+  <div class="breadcrumb">
+    <a href="/?lang=<%= lang %>"><%= t('nav.home') %></a> / <%= t('categories.' + categorySlug) %>
+  </div>
+
+  <section class="block" style="padding-top:0;">
+    <h2 class="section-title"><%= t('categories.' + categorySlug) %></h2>
+    <p style="color:var(--muted);margin-top:-16px;max-width:640px;"><%= t('category_desc.' + categorySlug) %></p>
+
+    <% if (products.length === 0) { %>
+      <div class="empty-state"><%= t('product.no_products') %></div>
+    <% } else { %>
+      <div class="product-grid">
+        <% products.forEach(function(p) { %>
+          <a class="product-card" href="/product/<%= p.slug %>?lang=<%= lang %>">
+            <div class="product-thumb">
+              <% if (p.image) { %><img src="<%= p.image %>" alt="<%= p.translations[lang].name %>" /><% } else { %><span><%= t('categories.' + p.categorySlug) %></span><% } %>
+            </div>
+            <div class="product-info">
+              <h3><%= p.translations[lang].name %></h3>
+              <p class="desc"><%= p.translations[lang].shortDesc %></p>
+              <span class="product-price"><%= p.priceMin %>&ndash;<%= p.priceMax %> <%= p.currency %> / <%= t('units.' + p.unit) %></span>
+            </div>
+          </a>
+        <% }) %>
+      </div>
+    <% } %>
+  </section>
+</div>
+
+<%- include('partials/footer') %>

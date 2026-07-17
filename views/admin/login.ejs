@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= t('admin.login_title') %> | <%= t('site.title') %></title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="login-shell">
+    <div class="login-card">
+      <h1><%= t('admin.login_title') %></h1>
+      <% if (error) { %><div class="error-msg"><%= error %></div><% } %>
+      <form method="POST" action="/admin/login?lang=<%= lang %>">
+        <div class="form-group">
+          <label><%= t('admin.username') %></label>
+          <input type="text" name="username" required autofocus />
+        </div>
+        <div class="form-group">
+          <label><%= t('admin.password') %></label>
+          <input type="password" name="password" required />
+        </div>
+        <button class="btn" type="submit" style="width:100%;"><%= t('admin.login_button') %></button>
+      </form>
+      <p style="text-align:center;margin-top:16px;"><a href="/?lang=<%= lang %>" style="color:var(--muted);font-size:0.85rem;">&larr; <%= t('nav.home') %></a></p>
+    </div>
+  </div>
+</body>
+</html>
