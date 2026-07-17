@@ -14,7 +14,7 @@
     <div class="category-grid">
       <% const icons = { 'nong-san': '🌾', 'do-gia-dung': '🏺', 'go': '🪵', 'thiet-bi-cong-nghiep': '⚙️' }; %>
       <% categories.forEach(function(cat) { %>
-        <a class="category-card" href="/products/<%= cat %>?lang=<%= lang %>">
+        <a class="category-card" href="/products/<%= cat %>">
           <div class="category-icon"><%= icons[cat] || '📦' %></div>
           <h3><%= t('categories.' + cat) %></h3>
           <p><%= t('category_desc.' + cat) %></p>
@@ -29,18 +29,43 @@
     <h2 class="section-title"><%= t('nav.products') %></h2>
     <div class="product-grid">
       <% featured.forEach(function(p) { %>
-        <a class="product-card" href="/product/<%= p.slug %>?lang=<%= lang %>">
+        <a class="product-card" href="/product/<%= p.slug %>">
           <div class="product-thumb">
-            <% if (p.image) { %><img src="<%= p.image %>" alt="<%= p.translations[lang].name %>" /><% } else { %><span><%= t('categories.' + p.categorySlug) %></span><% } %>
+            <% if (p.image) { %><img src="<%= p.image %>" alt="<%= p.name %>" /><% } else { %><span><%= t('categories.' + p.categorySlug) %></span><% } %>
           </div>
           <div class="product-info">
             <span class="product-cat-tag"><%= t('categories.' + p.categorySlug) %></span>
-            <h3><%= p.translations[lang].name %></h3>
-            <p class="desc"><%= p.translations[lang].shortDesc %></p>
+            <h3><%= p.name %></h3>
+            <p class="desc"><%= p.shortDesc %></p>
             <span class="product-price"><%= p.priceMin %>&ndash;<%= p.priceMax %> <%= p.currency %> / <%= t('units.' + p.unit) %></span>
           </div>
         </a>
       <% }) %>
+    </div>
+  </section>
+  <% } %>
+
+  <% if (latestNews && latestNews.length) { %>
+  <section class="block">
+    <h2 class="section-title"><%= t('home.news_title') %></h2>
+    <p style="color:var(--muted);margin-top:-16px;max-width:640px;"><%= t('home.news_subtitle') %></p>
+    <div class="news-grid">
+      <% latestNews.forEach(function(n) { %>
+        <a class="news-card" href="/news/<%= n.slug %>">
+          <div class="news-thumb">
+            <% if (n.image) { %><img src="<%= n.image %>" alt="<%= n.title %>" /><% } else { %><span>📰</span><% } %>
+          </div>
+          <div class="news-info">
+            <span class="news-date"><%= n.publishedAt %></span>
+            <h3><%= n.title %></h3>
+            <p class="desc"><%= n.summary %></p>
+            <span class="link"><%= t('news.read_more') %> &rarr;</span>
+          </div>
+        </a>
+      <% }) %>
+    </div>
+    <div style="margin-top:22px;">
+      <a class="btn btn-outline" href="/news"><%= t('news.all_news') %></a>
     </div>
   </section>
   <% } %>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<%= lang %>">
+<html lang="vi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,22 +7,37 @@
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
+  <!-- Google Translate: dịch trang tự động sang ngôn ngữ khác cho khách quốc tế -->
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        { pageLanguage: "vi", includedLanguages: "en,zh-CN,ja,ko,fr,ru,th", autoDisplay: false },
+        "google_translate_element"
+      );
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="/?lang=<%= lang %>">
+      <a class="brand notranslate" href="/">
         <span class="brand-mark">AT</span>
         <span><%= t('site.title') %></span>
       </a>
       <nav class="main-nav">
-        <a href="/?lang=<%= lang %>" class="<%= currentPath === '/' ? 'active' : '' %>"><%= t('nav.home') %></a>
+        <a href="/" class="<%= currentPath === '/' ? 'active' : '' %>"><%= t('nav.home') %></a>
         <% categories.forEach(function(cat) { %>
-          <a href="/products/<%= cat %>?lang=<%= lang %>" class="<%= currentPath === '/products/' + cat ? 'active' : '' %>"><%= t('categories.' + cat) %></a>
+          <a href="/products/<%= cat %>" class="<%= currentPath === '/products/' + cat ? 'active' : '' %>"><%= t('categories.' + cat) %></a>
         <% }) %>
+        <a href="/news" class="<%= currentPath === '/news' ? 'active' : '' %>"><%= t('nav.news') %></a>
       </nav>
-      <div class="lang-switch">
-        <% supportedLangs.forEach(function(l) { %>
-          <a href="<%= currentPath %>?lang=<%= l.code %>" class="<%= lang === l.code ? 'active' : '' %>"><%= l.code.toUpperCase() %></a>
-        <% }) %>
+      <div class="lang-switch notranslate" id="translateSwitch">
+        <button type="button" class="active" data-lang="vi">VI</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="zh-CN">ZH</button>
+        <button type="button" data-lang="ja">JA</button>
+        <button type="button" data-lang="ko">KO</button>
       </div>
     </div>
   </header>

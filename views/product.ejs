@@ -2,24 +2,24 @@
 
 <div class="container" style="padding-top:30px;">
   <div class="breadcrumb">
-    <a href="/?lang=<%= lang %>"><%= t('nav.home') %></a> /
-    <a href="/products/<%= product.categorySlug %>?lang=<%= lang %>"><%= t('categories.' + product.categorySlug) %></a> /
-    <%= product.translations[lang].name %>
+    <a href="/"><%= t('nav.home') %></a> /
+    <a href="/products/<%= product.categorySlug %>"><%= t('categories.' + product.categorySlug) %></a> /
+    <%= product.name %>
   </div>
 
   <section class="block" style="padding-top:0;">
     <div class="product-detail">
       <div class="product-detail-image">
         <% if (product.image) { %>
-          <img src="<%= product.image %>" alt="<%= product.translations[lang].name %>" />
+          <img src="<%= product.image %>" alt="<%= product.name %>" />
         <% } else { %>
           <span><%= t('categories.' + product.categorySlug) %></span>
         <% } %>
       </div>
       <div>
         <span class="product-cat-tag"><%= t('categories.' + product.categorySlug) %></span>
-        <h1 style="margin:12px 0 6px;color:var(--green-900);"><%= product.translations[lang].name %></h1>
-        <p style="color:var(--muted);"><%= product.translations[lang].shortDesc %></p>
+        <h1 style="margin:12px 0 6px;color:var(--green-900);"><%= product.name %></h1>
+        <p style="color:var(--muted);"><%= product.shortDesc %></p>
 
         <table class="spec-table">
           <tr><td><%= t('product.price') %></td><td class="product-price"><%= product.priceMin %>&ndash;<%= product.priceMax %> <%= product.currency %> / <%= t('units.' + product.unit) %></td></tr>
@@ -28,11 +28,11 @@
         </table>
 
         <h3 style="color:var(--green-900);font-size:1rem;"><%= t('product.description') %></h3>
-        <p style="color:var(--text);white-space:pre-line;"><%= product.translations[lang].description %></p>
+        <p style="color:var(--text);white-space:pre-line;"><%= product.description %></p>
 
         <div class="form-actions">
-          <a class="btn" href="mailto:sales@atagreen.com?subject=<%= encodeURIComponent(product.translations[lang].name) %>"><%= t('product.contact_supplier') %></a>
-          <a class="btn btn-outline" href="/products/<%= product.categorySlug %>?lang=<%= lang %>"><%= t('product.back_to_category') %></a>
+          <a class="btn" href="mailto:sales@atagreen.com?subject=<%= encodeURIComponent(product.name) %>"><%= t('product.contact_supplier') %></a>
+          <a class="btn btn-outline" href="/products/<%= product.categorySlug %>"><%= t('product.back_to_category') %></a>
         </div>
       </div>
     </div>
@@ -41,12 +41,12 @@
       <h2 class="section-title" style="margin-top:50px;"><%= t('product.related_products') %></h2>
       <div class="product-grid">
         <% related.forEach(function(p) { %>
-          <a class="product-card" href="/product/<%= p.slug %>?lang=<%= lang %>">
+          <a class="product-card" href="/product/<%= p.slug %>">
             <div class="product-thumb">
-              <% if (p.image) { %><img src="<%= p.image %>" alt="<%= p.translations[lang].name %>" /><% } else { %><span><%= t('categories.' + p.categorySlug) %></span><% } %>
+              <% if (p.image) { %><img src="<%= p.image %>" alt="<%= p.name %>" /><% } else { %><span><%= t('categories.' + p.categorySlug) %></span><% } %>
             </div>
             <div class="product-info">
-              <h3><%= p.translations[lang].name %></h3>
+              <h3><%= p.name %></h3>
               <span class="product-price"><%= p.priceMin %>&ndash;<%= p.priceMax %> <%= p.currency %></span>
             </div>
           </a>

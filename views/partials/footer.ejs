@@ -8,8 +8,9 @@
         <h4><%= t('footer.quick_links') %></h4>
         <p>
           <% categories.forEach(function(cat) { %>
-            <a href="/products/<%= cat %>?lang=<%= lang %>" style="display:block;margin-bottom:6px;"><%= t('categories.' + cat) %></a>
+            <a href="/products/<%= cat %>" style="display:block;margin-bottom:6px;"><%= t('categories.' + cat) %></a>
           <% }) %>
+          <a href="/news" style="display:block;margin-bottom:6px;"><%= t('nav.news') %></a>
         </p>
       </div>
       <div>
@@ -25,5 +26,6 @@
       &copy; <%= new Date().getFullYear() %> <%= t('site.title') %>. <%= t('footer.rights') %>
     </div>
   </footer>
+  <script src="/js/translate.js"></script>
 </body>
 </html>

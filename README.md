@@ -1,6 +1,6 @@
-# Website Xuất Nhập Khẩu (VI / EN / ZH / JA)
+# Website Xuất Nhập Khẩu
 
-Website đăng sản phẩm xuất nhập khẩu, chia theo 4 nhóm: **Nông sản**, **Đồ gia dụng**, **Gỗ**, **Thiết bị công nghiệp**. Hỗ trợ 4 ngôn ngữ: Tiếng Việt, English, 中文, 日本語. Có trang quản trị (`/admin`) để tự thêm/sửa/xóa sản phẩm, không cần biết code.
+Website đăng sản phẩm xuất nhập khẩu (tiếng Việt), chia theo 4 nhóm: **Nông sản**, **Đồ gia dụng**, **Gỗ**, **Thiết bị công nghiệp**, kèm mục **Tin tức xuất nhập khẩu**. Có trang quản trị (`/admin`) để tự thêm/sửa/xóa sản phẩm và tin tức, không cần biết code. Khách quốc tế có thể tự dịch trang sang ngôn ngữ khác bằng nút dịch ở góc phải header (dùng Google Translate).
 
 ## Chạy thử trên máy tính
 
@@ -18,7 +18,7 @@ Trang quản trị: **http://localhost:3000/admin/login**
 - Tài khoản mặc định: `admin`
 - Mật khẩu mặc định: `admin123`
 
-⚠️ **Đổi mật khẩu mặc định trước khi đưa lên internet.** Cách đổi: mở file `db/data.json` sau lần chạy đầu tiên, hoặc chạy lệnh:
+⚠️ **Đổi mật khẩu mặc định trước khi đưa lên internet.** Chạy lệnh sau (thay `mat-khau-moi-cua-ban`):
 
 ```bash
 node -e "require('./db/store').changeAdminPassword('admin', 'mat-khau-moi-cua-ban')"
@@ -26,24 +26,24 @@ node -e "require('./db/store').changeAdminPassword('admin', 'mat-khau-moi-cua-ba
 
 ## Cấu trúc dữ liệu
 
-- Toàn bộ sản phẩm và tài khoản quản trị lưu trong `db/data.json` (tự động tạo khi chạy lần đầu, kèm 8 sản phẩm mẫu).
-- Ảnh sản phẩm tải lên qua `/admin` được lưu trong `public/uploads/`.
+- Toàn bộ sản phẩm, tin tức và tài khoản quản trị lưu trong `db/data.json` (tự động tạo khi chạy lần đầu, kèm 8 sản phẩm mẫu và 10 tin tức mẫu).
+- Ảnh tải lên qua `/admin` được lưu trong `public/uploads/`.
 - Không cần cài đặt database ngoài (MySQL/Postgres...) — phù hợp để chạy nhanh, dữ liệu vừa và nhỏ.
-- Nếu lượng sản phẩm lớn hoặc nhiều người chỉnh sửa cùng lúc, nên nâng cấp sang database thật (ví dụ SQLite/Postgres) khi triển khai chính thức.
+- Nếu lượng sản phẩm/tin tức lớn hoặc nhiều người chỉnh sửa cùng lúc, nên nâng cấp sang database thật khi triển khai chính thức.
 
-## Thêm/sửa sản phẩm
+## Thêm/sửa sản phẩm và tin tức
 
 1. Đăng nhập `/admin`.
-2. Bấm **+ Thêm sản phẩm**.
-3. Chọn danh mục, nhập giá, đơn vị, số lượng đặt tối thiểu (MOQ), tải ảnh.
-4. Điền tên + mô tả cho từng ngôn ngữ (tab VI / EN / ZH / JA ở dưới form). Ít nhất nên điền đủ VI và EN.
-5. Bấm **Lưu**.
+2. Trang quản trị có 2 mục: **Quản lý sản phẩm** và **Quản lý tin tức** (chuyển qua lại bằng thanh tab phía trên).
+3. Bấm **+ Thêm sản phẩm** / **+ Thêm tin tức**, điền thông tin (tiếng Việt), tải ảnh nếu có, bấm **Lưu**.
 
-Danh mục sản phẩm là cố định (4 nhóm nêu trên) — không thêm/xóa danh mục qua giao diện. Nếu cần đổi tên hiển thị hoặc thêm danh mục mới, sửa trong 4 file `locales/*.json` (mục `categories` và `category_desc`) và mảng `CATEGORIES` trong `db/store.js`.
+Danh mục sản phẩm là cố định (4 nhóm nêu trên) — không thêm/xóa danh mục qua giao diện. Nếu cần đổi tên hiển thị hoặc thêm danh mục mới, sửa trong `locales/vi.json` (mục `categories` và `category_desc`) và mảng `CATEGORIES` trong `db/store.js`.
 
-## Đổi ngôn ngữ hiển thị
+## Dịch trang sang ngôn ngữ khác
 
-Người dùng chọn ngôn ngữ ở góc phải header (VI / EN / ZH / JA). Toàn bộ giao diện, tên và mô tả sản phẩm sẽ đổi theo. Chuỗi giao diện (nút, nhãn...) nằm trong `locales/vi.json`, `en.json`, `zh.json`, `ja.json` — sửa trực tiếp các file này để chỉnh câu chữ.
+Website chỉ soạn nội dung bằng tiếng Việt. Khách nước ngoài bấm nút **EN / ZH / JA / KO** ở góc phải header để trình duyệt tự dịch toàn bộ trang bằng Google Translate (miễn phí, không cần cấu hình gì thêm). Bấm **VI** để quay lại bản gốc.
+
+Lưu ý: đây là dịch máy tự động ngay trên trình duyệt, chất lượng tương đương Google Translate thông thường — không sửa được câu chữ bản dịch. Nếu sau này cần chất lượng dịch tốt hơn (ví dụ DeepL) hoặc muốn nội dung dịch sẵn có trong mã nguồn để tốt cho SEO, đó là một hướng nâng cấp riêng, tốn thêm chi phí dịch vụ dịch thuật.
 
 ## Đưa lên internet (deploy)
 
@@ -60,21 +60,23 @@ Các bước chung:
 
 ```
 xnk-website/
-  server.js              # điểm khởi chạy
+  server.js                 # điểm khởi chạy
   db/
-    store.js              # đọc/ghi dữ liệu (JSON file)
-    seedProducts.js        # 8 sản phẩm mẫu ban đầu
-    data.json               # dữ liệu thật (tự tạo khi chạy lần đầu)
+    store.js                 # đọc/ghi dữ liệu (JSON file), CRUD sản phẩm + tin tức
+    seedProducts.js           # 8 sản phẩm mẫu ban đầu
+    seedNews.js                # 10 tin tức mẫu ban đầu
+    data.json                   # dữ liệu thật (tự tạo khi chạy lần đầu)
   routes/
-    public.js              # route trang công khai
-    admin.js                # route trang quản trị + upload ảnh
+    public.js                 # route trang công khai (trang chủ, danh mục, sản phẩm, tin tức)
+    admin.js                   # route trang quản trị + upload ảnh
   middleware/
-    i18n.js                 # xử lý đa ngôn ngữ
-    auth.js                  # bảo vệ trang quản trị
-  views/                    # giao diện EJS (trang chủ, danh mục, chi tiết SP, admin)
-  locales/                  # bản dịch giao diện: vi.json / en.json / zh.json / ja.json
+    i18n.js                    # nạp chuỗi giao diện tiếng Việt (locales/vi.json)
+    auth.js                     # bảo vệ trang quản trị
+  views/                        # giao diện EJS (trang chủ, danh mục, chi tiết SP, tin tức, admin)
+  locales/
+    vi.json                      # toàn bộ chuỗi giao diện tiếng Việt
   public/
     css/style.css
-    js/admin-form.js
-    uploads/                # ảnh sản phẩm tải lên
+    js/translate.js             # điều khiển nút dịch Google Translate
+    uploads/                     # ảnh sản phẩm / tin tức tải lên
 ```

@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+
+<div class="container" style="padding-top:30px;">
+  <div class="breadcrumb">
+    <a href="/"><%= t('nav.home') %></a> / <%= t('news.page_title') %>
+  </div>
+
+  <section class="block" style="padding-top:0;">
+    <h2 class="section-title"><%= t('news.page_title') %></h2>
+
+    <% if (news.length === 0) { %>
+      <div class="empty-state"><%= t('news.no_news') %></div>
+    <% } else { %>
+      <div class="news-grid">
+        <% news.forEach(function(n) { %>
+          <a class="news-card" href="/news/<%= n.slug %>">
+            <div class="news-thumb">
+              <% if (n.image) { %><img src="<%= n.image %>" alt="<%= n.title %>" /><% } else { %><span>📰</span><% } %>
+            </div>
+            <div class="news-info">
+              <span class="news-date"><%= n.publishedAt %></span>
+              <h3><%= n.title %></h3>
+              <p class="desc"><%= n.summary %></p>
+              <span class="link"><%= t('news.read_more') %> &rarr;</span>
+            </div>
+          </a>
+        <% }) %>
+      </div>
+    <% } %>
+  </section>
+</div>
+
+<%- include('partials/footer') %>

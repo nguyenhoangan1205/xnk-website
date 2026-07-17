@@ -1,7 +1,7 @@
 {
   "lang_name": "Tiếng Việt",
   "site": { "title": "ATA Green Export-Import", "tagline": "Kết nối sản phẩm Việt Nam với thế giới" },
-  "nav": { "home": "Trang chủ", "products": "Sản phẩm", "about": "Giới thiệu", "contact": "Liên hệ", "admin": "Quản trị" },
+  "nav": { "home": "Trang chủ", "products": "Sản phẩm", "news": "Tin tức", "about": "Giới thiệu", "contact": "Liên hệ", "admin": "Quản trị" },
   "home": {
     "hero_title": "Xuất nhập khẩu sản phẩm chất lượng cao",
     "hero_subtitle": "Nông sản, đồ gia dụng, gỗ và thiết bị công nghiệp — nguồn hàng uy tín, giá cạnh tranh, giao hàng toàn cầu.",
@@ -14,7 +14,9 @@
     "why_2_desc": "Kinh nghiệm xuất nhập khẩu đến nhiều thị trường quốc tế.",
     "why_3_title": "Giá cạnh tranh",
     "why_3_desc": "Làm việc trực tiếp với nhà sản xuất để tối ưu chi phí.",
-    "contact_cta": "Liên hệ báo giá ngay"
+    "contact_cta": "Liên hệ báo giá ngay",
+    "news_title": "Tin tức xuất nhập khẩu",
+    "news_subtitle": "Cập nhật diễn biến thị trường, chính sách và cơ hội xuất nhập khẩu mới nhất."
   },
   "categories": {
     "nong-san": "Nông sản",
@@ -43,6 +45,15 @@
     "no_products": "Chưa có sản phẩm trong danh mục này."
   },
   "units": { "kg": "kg", "ton": "tấn", "container": "container", "piece": "cái", "m3": "m³", "box": "thùng" },
+  "news": {
+    "page_title": "Tin tức xuất nhập khẩu",
+    "back_to_list": "Quay lại danh sách tin tức",
+    "published_on": "Ngày đăng",
+    "read_more": "Đọc tiếp",
+    "all_news": "Xem tất cả tin tức",
+    "no_news": "Chưa có tin tức nào.",
+    "related_news": "Tin tức khác"
+  },
   "footer": {
     "text": "Chuyên xuất nhập khẩu nông sản, đồ gia dụng, gỗ và thiết bị công nghiệp.",
     "rights": "Bản quyền thuộc về công ty.",
@@ -78,6 +89,20 @@
     "language_tab_note": "Nhập nội dung cho từng ngôn ngữ bên dưới.",
     "price_min": "Giá thấp nhất",
     "price_max": "Giá cao nhất",
-    "currency": "Đơn vị tiền tệ"
+    "currency": "Đơn vị tiền tệ",
+    "manage_products": "Quản lý sản phẩm",
+    "manage_news": "Quản lý tin tức",
+    "news_dashboard": "Bảng quản trị tin tức",
+    "add_news": "Thêm tin tức",
+    "edit_news": "Sửa tin tức",
+    "news_title_field": "Tiêu đề",
+    "news_summary": "Tóm tắt",
+    "news_content": "Nội dung",
+    "publish_date": "Ngày đăng",
+    "no_news_admin": "Chưa có tin tức nào. Hãy thêm tin đầu tiên.",
+    "news_created": "Đã thêm tin tức thành công.",
+    "news_updated": "Đã cập nhật tin tức thành công.",
+    "news_deleted": "Đã xóa tin tức.",
+    "confirm_delete_news": "Bạn chắc chắn muốn xóa tin tức này?"
   }
 }

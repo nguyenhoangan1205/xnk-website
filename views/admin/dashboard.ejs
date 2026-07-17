@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<%= lang %>">
+<html lang="vi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,17 +11,22 @@
     <span class="brand"><%= t('site.title') %> — <%= t('admin.dashboard') %></span>
     <div style="display:flex;align-items:center;gap:14px;">
       <span style="font-size:0.85rem;"><%= t('admin.logged_in_as') %>: <%= username %></span>
-      <a href="/?lang=<%= lang %>" style="font-size:0.85rem;color:#cfe4d3;"><%= t('nav.home') %></a>
-      <form method="POST" action="/admin/logout?lang=<%= lang %>">
+      <a href="/" style="font-size:0.85rem;color:#cfe4d3;"><%= t('nav.home') %></a>
+      <form method="POST" action="/admin/logout">
         <button class="btn btn-small btn-outline" style="color:white;border-color:rgba(255,255,255,0.4);" type="submit"><%= t('admin.logout') %></button>
       </form>
     </div>
   </div>
 
   <div class="admin-main">
+    <div class="admin-subnav">
+      <a href="/admin" class="active"><%= t('admin.manage_products') %></a>
+      <a href="/admin/news"><%= t('admin.manage_news') %></a>
+    </div>
+
     <div class="admin-header-row">
       <h1 style="margin:0;color:var(--green-900);font-size:1.3rem;"><%= t('admin.dashboard') %></h1>
-      <a class="btn" href="/admin/products/new?lang=<%= lang %>">+ <%= t('admin.add_product') %></a>
+      <a class="btn" href="/admin/products/new">+ <%= t('admin.add_product') %></a>
     </div>
 
     <% if (flash) { %>
@@ -51,12 +56,12 @@
               <td>
                 <% if (p.image) { %><img class="thumb" src="<%= p.image %>" alt="" /><% } else { %><div class="thumb" style="background:#eef2ee;"></div><% } %>
               </td>
-              <td><%= p.translations[lang].name || p.translations.vi.name %></td>
+              <td><%= p.name %></td>
               <td><%= t('categories.' + p.categorySlug) %></td>
               <td><%= p.priceMin %>&ndash;<%= p.priceMax %> <%= p.currency %></td>
               <td class="actions-cell">
-                <a class="btn btn-small btn-outline" href="/admin/products/<%= p.id %>/edit?lang=<%= lang %>"><%= t('admin.edit') %></a>
-                <form method="POST" action="/admin/products/<%= p.id %>/delete?lang=<%= lang %>" onsubmit="return confirm('<%= t('admin.confirm_delete') %>')">
+                <a class="btn btn-small btn-outline" href="/admin/products/<%= p.id %>/edit"><%= t('admin.edit') %></a>
+                <form method="POST" action="/admin/products/<%= p.id %>/delete" onsubmit="return confirm('<%= t('admin.confirm_delete') %>')">
                   <button class="btn btn-small btn-danger" type="submit"><%= t('admin.delete') %></button>
                 </form>
               </td>

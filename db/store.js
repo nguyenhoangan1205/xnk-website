@@ -1,11 +1,12 @@
 // Lớp lưu trữ dữ liệu dạng file JSON (không cần cài đặt database ngoài).
-// Toàn bộ sản phẩm và tài khoản quản trị được lưu trong db/data.json.
+// Toàn bộ sản phẩm, tin tức và tài khoản quản trị được lưu trong db/data.json.
 const fs = require("fs");
 const path = require("path");
 const bcrypt = require("bcryptjs");
 
 const DATA_FILE = path.join(__dirname, "data.json");
 const seedProducts = require("./seedProducts");
+const seedNews = require("./seedNews");
 
 const CATEGORIES = ["nong-san", "do-gia-dung", "go", "thiet-bi-cong-nghiep"];
 const DEFAULT_ADMIN_USER = "admin";
@@ -24,18 +25,28 @@ function nextId(items) {
   return items.reduce((max, p) => Math.max(max, p.id), 0) + 1;
 }
 
-function buildInitialData() {
-  const products = seedProducts.map((p, idx) => {
+function buildInitialProducts() {
+  return seedProducts.map((p, idx) => {
     const id = idx + 1;
-    const baseName = p.translations.en.name;
-    return Object.assign({ id, slug: `${slugify(baseName)}-${id}`, createdAt: new Date().toISOString() }, p);
+    return Object.assign({ id, slug: `${slugify(p.name)}-${id}`, createdAt: new Date().toISOString() }, p);
   });
+}
+
+function buildInitialNews() {
+  return seedNews.map((n, idx) => {
+    const id = idx + 1;
+    return Object.assign({ id, slug: `${slugify(n.title)}-${id}`, createdAt: new Date().toISOString() }, n);
+  });
+}
+
+function buildInitialData() {
   return {
     admin: {
       username: DEFAULT_ADMIN_USER,
       passwordHash: bcrypt.hashSync(DEFAULT_ADMIN_PASS, 10)
     },
-    products
+    products: buildInitialProducts(),
+    news: buildInitialNews()
   };
 }
 
@@ -46,7 +57,13 @@ function readDB() {
     return initial;
   }
   const raw = fs.readFileSync(DATA_FILE, "utf-8");
-  return JSON.parse(raw);
+  const db = JSON.parse(raw);
+  // Tự động thêm mục "news" cho các file dữ liệu cũ được tạo trước khi có tính năng tin tức.
+  if (!Array.isArray(db.news)) {
+    db.news = buildInitialNews();
+    fs.writeFileSync(DATA_FILE, JSON.stringify(db, null, 2), "utf-8");
+  }
+  return db;
 }
 
 function writeDB(db) {
@@ -59,6 +76,8 @@ module.exports = {
   getCategories() {
     return CATEGORIES;
   },
+
+  // ---- Sản phẩm ----
 
   getAllProducts() {
     return readDB().products.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
@@ -79,7 +98,7 @@ module.exports = {
   createProduct(data) {
     const db = readDB();
     const id = nextId(db.products);
-    const slug = `${slugify(data.translations.en.name || data.translations.vi.name || "san-pham")}-${id}`;
+    const slug = `${slugify(data.name || "san-pham")}-${id}`;
     const product = Object.assign({ id, slug, createdAt: new Date().toISOString() }, data);
     db.products.push(product);
     writeDB(db);
@@ -102,6 +121,49 @@ module.exports = {
     writeDB(db);
     return db.products.length < before;
   },
+
+  // ---- Tin tức ----
+
+  getAllNews() {
+    return readDB().news.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+  },
+
+  getNewsBySlug(slug) {
+    return readDB().news.find((n) => n.slug === slug);
+  },
+
+  getNewsById(id) {
+    return readDB().news.find((n) => n.id === Number(id));
+  },
+
+  createNews(data) {
+    const db = readDB();
+    const id = nextId(db.news);
+    const slug = `${slugify(data.title || "tin-tuc")}-${id}`;
+    const news = Object.assign({ id, slug, createdAt: new Date().toISOString() }, data);
+    db.news.push(news);
+    writeDB(db);
+    return news;
+  },
+
+  updateNews(id, data) {
+    const db = readDB();
+    const idx = db.news.findIndex((n) => n.id === Number(id));
+    if (idx === -1) return null;
+    db.news[idx] = Object.assign({}, db.news[idx], data, { id: Number(id) });
+    writeDB(db);
+    return db.news[idx];
+  },
+
+  deleteNews(id) {
+    const db = readDB();
+    const before = db.news.length;
+    db.news = db.news.filter((n) => n.id !== Number(id));
+    writeDB(db);
+    return db.news.length < before;
+  },
+
+  // ---- Quản trị ----
 
   verifyAdmin(username, password) {
     const db = readDB();

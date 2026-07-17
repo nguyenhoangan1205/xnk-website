@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<%= lang %>">
+<html lang="vi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,14 +9,14 @@
 <body class="admin-shell">
   <div class="admin-topbar">
     <span class="brand"><%= t('site.title') %> — <%= product ? t('admin.edit_product') : t('admin.add_product') %></span>
-    <a href="/admin?lang=<%= lang %>" style="font-size:0.85rem;color:#cfe4d3;">&larr; <%= t('admin.dashboard') %></a>
+    <a href="/admin" style="font-size:0.85rem;color:#cfe4d3;">&larr; <%= t('admin.dashboard') %></a>
   </div>
 
   <div class="admin-main">
     <% if (error) { %><div class="error-msg"><%= error %></div><% } %>
 
     <form method="POST" enctype="multipart/form-data"
-          action="<%= product ? '/admin/products/' + product.id + '/edit?lang=' + lang : '/admin/products/new?lang=' + lang %>">
+          action="<%= product ? '/admin/products/' + product.id + '/edit' : '/admin/products/new' %>">
 
       <div class="form-row">
         <div class="form-group">
@@ -68,37 +68,24 @@
         <input type="file" name="image" accept="image/*" />
       </div>
 
-      <p class="hint"><%= t('admin.language_tab_note') %></p>
-      <div class="lang-tabs">
-        <% langs.forEach(function(l, idx) { %>
-          <button type="button" class="lang-tab-btn <%= idx === 0 ? 'active' : '' %>" data-tab="<%= l %>"><%= l.toUpperCase() %></button>
-        <% }) %>
+      <div class="form-group">
+        <label><%= t('admin.product_name') %></label>
+        <input type="text" name="name" value="<%= product ? product.name : '' %>" required />
       </div>
-
-      <% langs.forEach(function(l, idx) { %>
-        <div class="lang-panel <%= idx === 0 ? 'active' : '' %>" data-panel="<%= l %>">
-          <div class="form-group">
-            <label><%= t('admin.product_name') %> (<%= l.toUpperCase() %>)</label>
-            <input type="text" name="name_<%= l %>" value="<%= product ? product.translations[l].name : '' %>" <%= idx === 0 ? 'required' : '' %> />
-          </div>
-          <div class="form-group">
-            <label><%= t('admin.short_desc') %> (<%= l.toUpperCase() %>)</label>
-            <input type="text" name="shortDesc_<%= l %>" value="<%= product ? product.translations[l].shortDesc : '' %>" />
-          </div>
-          <div class="form-group">
-            <label><%= t('admin.full_desc') %> (<%= l.toUpperCase() %>)</label>
-            <textarea name="description_<%= l %>"><%= product ? product.translations[l].description : '' %></textarea>
-          </div>
-        </div>
-      <% }) %>
+      <div class="form-group">
+        <label><%= t('admin.short_desc') %></label>
+        <input type="text" name="shortDesc" value="<%= product ? product.shortDesc : '' %>" />
+      </div>
+      <div class="form-group">
+        <label><%= t('admin.full_desc') %></label>
+        <textarea name="description"><%= product ? product.description : '' %></textarea>
+      </div>
 
       <div class="form-actions">
         <button class="btn" type="submit"><%= t('admin.save') %></button>
-        <a class="btn btn-outline" href="/admin?lang=<%= lang %>"><%= t('admin.cancel') %></a>
+        <a class="btn btn-outline" href="/admin"><%= t('admin.cancel') %></a>
       </div>
     </form>
   </div>
-
-  <script src="/js/admin-form.js"></script>
 </body>
 </html>
